@@ -1,25 +1,24 @@
-﻿string[] array1 = new string[4] {"hello", "2", "world", ":-)"};
+﻿// Из имеющегося массива строк сформировать массив строк, длинна которых меньше либо равна 3 символам.
 
-string[] array2 = new string[array1.Length];
-void SecondArrayWithIF(string[] array1, string[] array2)
+Console.Clear();
+
+string[] SmallString(string[] ar)
 {
-    int count = 0;
-    for (int i = 0; i < array1.Length; i++)
+    List <string> result = new List<string>();
+    for (int i = 0; i < ar.Length; i++)
     {
-    if(array1[i].Length <= 3)
-        {
-        array2[count] = array1[i];
-        count++;
+        if (ar[i].Length<=3){
+            result.Add(ar[i]);
         }
     }
+    string [] massForOut=result.ToArray<string>();
+    return massForOut;
 }
-void PrintArray(string[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]} ");
-    }
-    Console.WriteLine();
-}
-SecondArrayWithIF(array1, array2);
-PrintArray(array2);
+
+string[] Massive1 = new string[] { "hello", "2", "world", ":-)"};
+string[] Massive2 = SmallString(Massive1);
+
+Console.WriteLine("Это изначальный массив");
+Console.WriteLine(String.Join(", ", Massive1));
+Console.WriteLine("Это итоговый массив");
+Console.WriteLine(String.Join(", ", Massive2));
